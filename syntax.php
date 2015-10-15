@@ -1,6 +1,6 @@
 <?php
 /**
- * DokuWiki Plugin DAVCal (Syntax Component)
+ * DokuWiki Plugin abbrlist (Syntax Component)
  *
  * @license GPL 2 http://www.gnu.org/licenses/gpl-2.0.html
  * @author  Andreas Böhler <dev@aboehler.at>
@@ -104,6 +104,12 @@ class syntax_plugin_abbrlist extends DokuWiki_Syntax_Plugin {
      * Create output
      */
     function render($format, &$R, $data) {
+        if($format == 'metadata')
+        {
+          if(!isset($renderer->meta['abbrlist']))
+            p_set_metadata($ID, array('abbrlist' => array()));
+          return true;
+        }
         if(($format != 'xhtml') && ($format != 'odt')) return false;
 
         $R->table_open();
