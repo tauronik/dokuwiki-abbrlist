@@ -5,7 +5,7 @@ if(!defined('DOKU_INC')) die();
 class action_plugin_abbrlist extends DokuWiki_Action_Plugin {
     
   // Register our hooks 
-  function register(&$controller) {
+  function register(Doku_Event_Handler $controller) {
     $controller->register_hook('PARSER_CACHE_USE', 'BEFORE', $this, 'handle_parser_cache_use');    
   }
   

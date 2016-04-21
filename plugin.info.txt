@@ -1,7 +1,7 @@
 base	abbrlist
 author  Andreas Boehler
 email   dev@aboehler.at
-date    2015-10-15
+date    2016-04-21
 name    List abbreviations as a table
 desc    Show all abbreviations with their description as a table
 url     http://www.dokuwiki.org/plugin:abbrlist
