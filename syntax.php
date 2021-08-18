@@ -3,18 +3,15 @@
  * DokuWiki Plugin abbrlist (Syntax Component)
  *
  * @license GPL 2 http://www.gnu.org/licenses/gpl-2.0.html
- * @author  Andreas Böhler <dev@aboehler.at>
+ * @version 2021-08-12
+ * @author  Michael Schatz <m.schatz@tauronik.de>
+ *
+ * @author  (Original by) Andreas Böhler <dev@aboehler.at>
  */
 
-// must be run within Dokuwiki
-if(!defined('DOKU_INC')) die();
-
-if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
-require_once(DOKU_PLUGIN.'syntax.php');
 
 class syntax_plugin_abbrlist extends DokuWiki_Syntax_Plugin {
-    
-    
+
     /**
      * What kind of syntax are we?
      */
@@ -46,7 +43,7 @@ class syntax_plugin_abbrlist extends DokuWiki_Syntax_Plugin {
     /**
      * Handle the match
      */
-    function handle($match, $state, $pos, &$handler){
+    function handle($match, $state, $pos, Doku_Handler $handler){
         global $ID;
         $options = trim(substr($match,11,-2));
         $options = explode(',', $options);
@@ -103,7 +100,7 @@ class syntax_plugin_abbrlist extends DokuWiki_Syntax_Plugin {
     /**
      * Create output
      */
-    function render($format, &$R, $data) {
+    function render($format, Doku_Renderer $R, $data) {
         if($format == 'metadata')
         {
           if(!isset($renderer->meta['abbrlist']))
@@ -135,9 +132,6 @@ class syntax_plugin_abbrlist extends DokuWiki_Syntax_Plugin {
         $R->table_close();
      
     }
-
-
-   
+  
 }
 
-// vim:ts=4:sw=4:et:enc=utf-8:
